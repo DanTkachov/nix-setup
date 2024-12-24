@@ -14,6 +14,9 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 ```
 
+3. Enable flakes on your new system if not already enabled
+` echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf` 
+
 
 
 [^1]: https://nixos.org/download/
