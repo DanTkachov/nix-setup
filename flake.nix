@@ -26,7 +26,7 @@
                         tree 
                         cowsay
                         git
-
+                        asciiquarium
                     ];
 
                     home = {
