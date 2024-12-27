@@ -21,7 +21,7 @@
             inherit pkgs;
 
             modules = [{
-                config, ...
+                config
             }:
                 {
                     home.packages = with pkgs; [
