@@ -49,6 +49,14 @@
                         }
                         '';
 
+                    # Enable desktop entries so that firefox/arandr/etc show up as desktop apps
+                    targets.genericLinux.enable = true;
+                    xdg = {
+                        enable = true;
+                        mime.enable = true;
+                        systemDirs.data = [ "${config.home.profileDirectory}/share" ];
+                    };
+
                     home = {
                         username = "dan";
                         homeDirectory = "/home/dan";
