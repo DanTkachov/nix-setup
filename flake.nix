@@ -29,7 +29,6 @@
                         asciiquarium
                         fzf
                         arandr
-                        firefox-devedition
                         chromium
                         firefox
                         gparted
