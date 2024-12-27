@@ -20,7 +20,9 @@
         homeConfigurations.dan = home-manager.lib.homeManagerConfiguration{
             inherit pkgs;
 
-            modules = [
+            modules = [{
+                config, ...
+            }:
                 {
                     home.packages = with pkgs; [
                         tree 
