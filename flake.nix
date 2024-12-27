@@ -20,9 +20,7 @@
         homeConfigurations.dan = home-manager.lib.homeManagerConfiguration{
             inherit pkgs;
 
-            modules = [{
-                config
-            }:
+            modules = [ ({config, ...}:
                 {
                     home.packages = with pkgs; [
                         tree 
@@ -69,7 +67,7 @@
                     programs.home-manager.enable = true;
                 }
 
-
+                )
 
             ];
         };
