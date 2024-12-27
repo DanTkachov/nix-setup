@@ -17,7 +17,10 @@ nix-shell '<home-manager>' -A install
 3. Enable flakes on your new system if not already enabled
 ` echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf` 
 
-
+4. Run nix-shell on the flake.nix file:
+```bash
+nix-shell
+```
 
 [^1]: https://nixos.org/download/
 [^2]: https://nix-community.github.io/home-manager/#sec-install-standalone

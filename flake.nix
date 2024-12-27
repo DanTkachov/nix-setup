@@ -7,6 +7,9 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        ghostty = {
+            url = "github:ghostty-org/ghostty";
+        };
     };
 
     outputs = {nixpkgs, home-manager, ...}:
@@ -23,21 +26,29 @@
             modules = [
                 {
                     home.packages = with pkgs; [
-                        tree
+                        tree 
                         cowsay
-                        
+                        git
+                        ghostty
 
                     ];
 
                     home = {
                         username = "dan";
                         homeDirectory = "/home/dan";
-                        stateVersion = "24.11";
+                        stateVersion = "25.05";
 
                     };
 
                     programs.home-manager.enable = true;
+
+                    environment.systemPackages = [
+                        ghostty.packages.x86_64-linux.default
+                    ];
                 }
+
+
+
             ];
         };
     };
