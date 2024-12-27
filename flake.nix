@@ -27,6 +27,7 @@
                         cowsay
                         git
                         asciiquarium
+                        fzf
                     ];
 
                     home = {
