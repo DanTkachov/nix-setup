@@ -22,6 +22,7 @@
     in{
         homeConfigurations.dan = home-manager.lib.homeManagerConfiguration{
             inherit pkgs;
+            extraSpecialArgs = { inherit ghostty; };
 
             modules = [
                 {
@@ -29,7 +30,7 @@
                         tree 
                         cowsay
                         git
-                        ghostty
+                        (ghostty.packages.${system}.default)
 
                     ];
 
@@ -41,10 +42,6 @@
                     };
 
                     programs.home-manager.enable = true;
-
-                    environment.systemPackages = [
-                        ghostty.packages.x86_64-linux.default
-                    ];
                 }
 
 
