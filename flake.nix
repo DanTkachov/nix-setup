@@ -28,7 +28,27 @@
                         git
                         asciiquarium
                         fzf
+                        arandr
+                        firefox-devedition
+                        chromium
+                        firefox
+                        gparted
+                        yt-dlp
+                        vscodium
                     ];
+
+
+                    # Add VSCodium config to automatically tap into microsoft extensions
+                    xdg.configFile."VSCodium/product.json".text = ''
+                        {
+                            "extensionsGallery": {
+                            "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+                            "itemUrl": "https://marketplace.visualstudio.com/items",
+                            "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+                            "controlUrl": ""
+                            }
+                        }
+                        '';
 
                     home = {
                         username = "dan";
