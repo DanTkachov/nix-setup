@@ -7,9 +7,6 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        ghostty = {
-            url = "github:ghostty-org/ghostty";
-        };
     };
 
     outputs = {nixpkgs, home-manager, ghostty, ...}:
@@ -22,7 +19,6 @@
     in{
         homeConfigurations.dan = home-manager.lib.homeManagerConfiguration{
             inherit pkgs;
-            extraSpecialArgs = { inherit ghostty; };
 
             modules = [
                 {
@@ -30,7 +26,6 @@
                         tree 
                         cowsay
                         git
-                        (ghostty.packages.${system}.default)
 
                     ];
 
