@@ -37,7 +37,6 @@
                         vlc
                         vim 
                         neovim
-                        vi
                         nano
                         virt-manager
                         
