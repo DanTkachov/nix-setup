@@ -17,9 +17,14 @@ nix-shell '<home-manager>' -A install
 3. Enable flakes on your new system if not already enabled
 ` echo "experimental-features = nix-command flakes" | sudo tee -a /etc/nix/nix.conf` 
 
-4. Run nix-shell on the flake.nix file:
+4. Switch over to the flake:
 ```bash
-nix-shell
+home-manager switch --flake github:dantkachov/nix-setup --no-write-lock-file --refresh
+```
+
+5. Rebuild KDE cache if using KDE:
+```bash
+kbuildsycoca6 --noincremental
 ```
 
 [^1]: https://nixos.org/download/
