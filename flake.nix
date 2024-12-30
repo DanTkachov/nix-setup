@@ -61,7 +61,7 @@
                     programs.plasma = {
                         enable = true;
                         workspace = {
-                            theme = "breeze";
+                            theme = "breeze-dark";
                         };
                         panels = [
                             {
