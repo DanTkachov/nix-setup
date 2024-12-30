@@ -22,7 +22,7 @@ nix-shell '<home-manager>' -A install
 home-manager switch --flake github:dantkachov/nix-setup --no-write-lock-file --refresh
 ```
 
-5. Rebuild KDE cache if using KDE:
+5. Rebuild KDE cache if using KDE for desktop icons:
 ```bash
 kbuildsycoca6 --noincremental
 ```

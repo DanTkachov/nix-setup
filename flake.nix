@@ -7,14 +7,14 @@
             url = "github:nix-community/home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        # plasma-manager = {
-        #     url = "github:nix-community/plasma-manager";
-        #     inputs.nixpkgs.follows = "nixpkgs";
-        #     inputs.home-manager.follows = "home-manager";
-        # };
+        plasma-manager = {
+            url = "github:nix-community/plasma-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+            inputs.home-manager.follows = "home-manager";
+        };
     };
 
-    outputs = {nixpkgs, home-manager, ...}:
+    outputs = {nixpkgs, home-manager, plasma-manager, ...}:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs { 
@@ -25,7 +25,9 @@
         homeConfigurations.dan = home-manager.lib.homeManagerConfiguration{
             inherit pkgs;
 
-            modules = [ ({config, ...}:
+            modules = [
+                plasma-manager.homeManagerModules.plasma-manager
+                ({config, ...}:
                 {
                     home.packages = with pkgs; [
                         tree 
@@ -54,6 +56,22 @@
                         obsidian
                         discord
                     ];
+
+                    # Plasma Configuration here:
+                    programs.plasma = {
+                        enable = true;
+                        panels = [
+                            {
+                                location = "left";
+                                height = 100; # percentage from 0 to 100; how tall it is
+                                width = 44; # in px, the thickness of the panel
+                                widgets = [
+                                    "org.kde.plasma.kickoff"
+
+                                ];
+                            }
+                        ];
+                    };
 
 
                     # Add VSCodium config to automatically tap into microsoft extensions
