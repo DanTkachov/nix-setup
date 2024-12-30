@@ -63,8 +63,9 @@
                         panels = [
                             {
                                 location = "left";
-                                height = 100; # percentage from 0 to 100; how tall it is
-                                width = 44; # in px, the thickness of the panel
+                                height = 44; # in px, the thickness of the panel
+                                floating = true;
+                                alignment = "center";
                                 widgets = [
                                     "org.kde.plasma.kickoff"
 
