@@ -65,7 +65,8 @@
                             colorScheme = "BreezeDark";
                             lookAndFeel = "org.kde.breezedark.desktop";
                             iconTheme = "breeze-dark";
-                            cursor.theme = "Breeze_Light";                        };
+                            cursor.theme = "Breeze_Light";
+                        };
                         panels = [
                             {
                                 location = "left";
@@ -74,10 +75,11 @@
                                 alignment = "center";
                                 minLength = 100;  # Add this to ensure full height
                                 maxLength = 100;  # Add this to ensure full height
-                                widgets = [
-                                    "org.kde.plasma.kickoff"
+                                screen = 0;
+                                # widgets = [
+                                #     "org.kde.plasma.kickoff"
 
-                                ];
+                                # ];
                             }
                         ];
                     };
