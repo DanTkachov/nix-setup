@@ -60,12 +60,17 @@
                     # Plasma Configuration here:
                     programs.plasma = {
                         enable = true;
+                        workspace = {
+                            theme = "breeze-dark";
+                        };
                         panels = [
                             {
                                 location = "left";
                                 height = 44; # in px, the thickness of the panel
                                 floating = true;
                                 alignment = "center";
+                                minLength = 100;  # Add this to ensure full height
+                                maxLength = 100;  # Add this to ensure full height
                                 widgets = [
                                     "org.kde.plasma.kickoff"
 
