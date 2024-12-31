@@ -126,7 +126,10 @@
                         #      priority = 2;
                         # };
 
-                        home.activation.copyPanelConfig = 
+                        
+                    };
+
+                    home.activation.copyPanelConfig = 
                         lib.hm.dag.entryAfter ["writeBoundary"] ''
                             $DRY_RUN_CMD echo "Starting panel configuration copy..."
                             if [ -f "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ]; then
@@ -140,7 +143,6 @@
                             $DRY_RUN_CMD killall plasmashell || true
                             $DRY_RUN_CMD kstart5 plasmashell || $DRY_RUN_CMD kstart6 plasmashell
                         '';
-                    };
 
                     programs.git = {
                         enable = true;
