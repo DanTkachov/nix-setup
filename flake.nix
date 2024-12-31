@@ -13,7 +13,7 @@
             inputs.home-manager.follows = "home-manager";
         };
         kde-panels-config = {
-            url="github:DanTkachov/nix-setup/configs/kde-panels.conf";
+            url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
     };
