@@ -118,7 +118,7 @@
 
                         startup.desktopScript."panels" = {
                             text = ''
-                                cp ${panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+                                cp ${kde-panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
                              '';
                              priority = 2;
                         };
