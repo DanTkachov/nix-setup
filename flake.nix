@@ -15,7 +15,7 @@
         kde-panels-config = {
             url="github:DanTkachov:nix-setup/configs/kde-panels.conf";
             flake = false;
-        }
+        };
     };
 
     outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, ...}:
