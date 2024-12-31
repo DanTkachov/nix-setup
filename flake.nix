@@ -116,15 +116,30 @@
                         #     }
                         # ];
 
-                        startup.desktopScript."panels" = {
-                            text = ''
-                                echo "Starting panel configuration..." >> /tmp/plasma-panel-debug.log
-                                ls -l ${kde-panels-config} >> /tmp/plasma-panel-debug.log
-                                cp ${kde-panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
-                                echo "Copy complete" >> /tmp/plasma-panel-debug.log    
-                            '';
-                             priority = 2;
-                        };
+                        # startup.desktopScript."panels" = {
+                        #     text = ''
+                        #         echo "Starting panel configuration..." >> /tmp/plasma-panel-debug.log
+                        #         ls -l ${kde-panels-config} >> /tmp/plasma-panel-debug.log
+                        #         cp ${kde-panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+                        #         echo "Copy complete" >> /tmp/plasma-panel-debug.log    
+                        #     '';
+                        #      priority = 2;
+                        # };
+
+                        home.activation.copyPanelConfig = 
+                        lib.hm.dag.entryAfter ["writeBoundary"] ''
+                            $DRY_RUN_CMD echo "Starting panel configuration copy..."
+                            if [ -f "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ]; then
+                                $DRY_RUN_CMD rm "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
+                            fi
+                            $DRY_RUN_CMD cp ${kde-panels-config} "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
+                            $DRY_RUN_CMD chmod 644 "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
+                            $DRY_RUN_CMD echo "Panel configuration copied"
+                            
+                            # Force restart plasmashell
+                            $DRY_RUN_CMD killall plasmashell || true
+                            $DRY_RUN_CMD kstart5 plasmashell || $DRY_RUN_CMD kstart6 plasmashell
+                        '';
                     };
 
                     programs.git = {
