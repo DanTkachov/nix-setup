@@ -30,21 +30,46 @@
                 ({config, ...}:
                 {
                     home.packages = with pkgs; [
+                        # command line tools
                         tree 
                         cowsay
                         git
                         asciiquarium
                         fzf
+                        yt-dlp
+                        vim 
+                        neovim
+                        nano
+                        ripgrep
+                        jq
+                        eza
+                        which
+                        gawk
+                        gnupg
+                        nix-output-monitor
+                        iotop
+
+                        # networking
+                        wireshark
+                        nmap
+                        iftop
+                        ipcalc
+
+
+                        # graphical applications 
                         arandr
                         chromium
                         firefox
                         gparted
-                        yt-dlp
                         vscodium
                         vlc
-                        vim 
-                        neovim
-                        nano
+
+                        # archives
+                        zip
+                        xz
+                        unzip
+                        p7zip
+                        
                         virt-manager
                         ffmpeg
                         floorp
@@ -73,15 +98,22 @@
                                 height = 44; # in px, the thickness of the panel
                                 floating = true;
                                 alignment = "center";
-                                minLength = 100;  # Add this to ensure full height
-                                maxLength = 100;  # Add this to ensure full height
+                                minLength = 1000;
+                                maxLength = 1600;
                                 screen = 0;
-                                # widgets = [
-                                #     "org.kde.plasma.kickoff"
-
-                                # ];
+                                widgets = [
+                                    "org.kde.plasma.kickoff" # Application Launcher
+                                    "org.kde.plasma.systemtray"  # System tray
+                                ];
+                                hiding = "none";
                             }
                         ];
+                    };
+
+                    programs.git = {
+                        enable = true;
+                        userName = "Dan Tkachov";
+                        userEmail = "danieltkachov67@gmail.com";
                     };
 
 
