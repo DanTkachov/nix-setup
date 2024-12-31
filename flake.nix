@@ -135,8 +135,7 @@
                             if [ -f "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ]; then
                                 $DRY_RUN_CMD rm "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
                             fi
-                            $DRY_RUN_CMD cp ${kde-panels-config} "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
-                            $DRY_RUN_CMD chmod 644 "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
+                            $DRY_RUN_CMD echo "${builtins.readFile kde-panels-config}" > "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"                            $DRY_RUN_CMD chmod 644 "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
                             $DRY_RUN_CMD echo "Panel configuration copied"
                         '';
 
