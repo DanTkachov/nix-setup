@@ -121,7 +121,7 @@
                                 cp ${panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
                              '';
                              priority = 2;
-                        }
+                        };
                     };
 
                     programs.git = {
