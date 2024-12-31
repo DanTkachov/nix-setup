@@ -12,9 +12,13 @@
             inputs.nixpkgs.follows = "nixpkgs";
             inputs.home-manager.follows = "home-manager";
         };
+        kde-panels-config = {
+            url="github:DanTkachov:nix-setup/configs/kde-panels.conf";
+            flake = false;
+        }
     };
 
-    outputs = {nixpkgs, home-manager, plasma-manager, ...}:
+    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, ...}:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs { 
@@ -55,7 +59,6 @@
                         iftop
                         ipcalc
 
-
                         # graphical applications 
                         arandr
                         chromium
@@ -63,6 +66,7 @@
                         gparted
                         vscodium
                         vlc
+                        floorp
 
                         # archives
                         zip
@@ -70,16 +74,18 @@
                         unzip
                         p7zip
                         
+                        # other
                         virt-manager
                         ffmpeg
-                        floorp
                         tldr
                         obs-studio
+                        docker
 
                         # Known unfree modules
                         steam
                         obsidian
                         discord
+                        mullvad-vpn
                     ];
 
                     # Plasma Configuration here:
@@ -92,22 +98,30 @@
                             iconTheme = "breeze-dark";
                             cursor.theme = "Breeze_Light";
                         };
-                        panels = [
-                            {
-                                location = "left";
-                                height = 44; # in px, the thickness of the panel
-                                floating = true;
-                                alignment = "center";
-                                minLength = 1000;
-                                maxLength = 1600;
-                                screen = 0;
-                                widgets = [
-                                    "org.kde.plasma.kickoff" # Application Launcher
-                                    "org.kde.plasma.systemtray"  # System tray
-                                ];
-                                hiding = "none";
-                            }
-                        ];
+                        # panels = [
+                        #     {
+                        #         location = "left";
+                        #         height = 44; # in px, the thickness of the panel
+                        #         floating = false;
+                        #         alignment = "center";
+                        #         minLength = 1000;
+                        #         maxLength = 1600;
+                        #         screen = 0;
+                        #         widgets = [
+                        #             "org.kde.plasma.kickoff" # Application Launcher
+                        #             "org.kde.plasma.systemtray"  # System tray
+                        #         ];
+                        #         hiding = "none";
+                        #         lengthMode = "fill";
+                        #     }
+                        # ];
+
+                        startup.desktopScript."panels" = {
+                            text = ''
+                                cp ${panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
+                             '';
+                             priority = 2;
+                        }
                     };
 
                     programs.git = {
