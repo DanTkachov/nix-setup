@@ -118,7 +118,7 @@
 
                         startup.desktopScript."panels" = {
                             text = ''
-                                echo "Starting panel configuration..." > /tmp/plasma-panel-debug.log
+                                echo "Starting panel configuration..." >> /tmp/plasma-panel-debug.log
                                 ls -l ${kde-panels-config} >> /tmp/plasma-panel-debug.log
                                 cp ${kde-panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
                                 echo "Copy complete" >> /tmp/plasma-panel-debug.log    
