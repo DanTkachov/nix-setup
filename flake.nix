@@ -55,8 +55,9 @@
                         gnupg
                         nix-output-monitor
                         iotop
-                        qt5ct
-                        qt6ct
+
+                        libsForQt5.qt5ct
+                        libsForQt6.qt6ct
 
                         # networking
                         wireshark
