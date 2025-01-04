@@ -16,6 +16,7 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
+        inputs.lightly.url = "github:Bali10050/Darkly";
     };
 
     outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, ...}:
@@ -98,46 +99,15 @@
                             iconTheme = "breeze-dark";
                             cursor.theme = "Breeze_Light";
                         };
-                        # panels = [
-                        #     {
-                        #         location = "left";
-                        #         height = 44; # in px, the thickness of the panel
-                        #         floating = false;
-                        #         alignment = "center";
-                        #         minLength = 1000;
-                        #         maxLength = 1600;
-                        #         screen = 0;
-                        #         widgets = [
-                        #             "org.kde.plasma.kickoff" # Application Launcher
-                        #             "org.kde.plasma.systemtray"  # System tray
-                        #         ];
-                        #         hiding = "none";
-                        #         lengthMode = "fill";
-                        #     }
-                        # ];
-
-                        # startup.desktopScript."panels" = {
-                        #     text = ''
-                        #         echo "Starting panel configuration..." >> /tmp/plasma-panel-debug.log
-                        #         ls -l ${kde-panels-config} >> /tmp/plasma-panel-debug.log
-                        #         cp ${kde-panels-config} $HOME/.config/plasma-org.kde.plasma.desktop-appletsrc
-                        #         echo "Copy complete" >> /tmp/plasma-panel-debug.log    
-                        #     '';
-                        #      priority = 2;
-                        # };
-
-                        
                     };
 
-                    home.activation.copyPanelConfig = 
-                        lib.hm.dag.entryAfter ["writeBoundary"] ''
-                            $DRY_RUN_CMD echo "Starting panel configuration copy..."
-                            if [ -f "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc" ]; then
-                                $DRY_RUN_CMD rm "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
-                            fi
-                            $DRY_RUN_CMD echo "${builtins.readFile kde-panels-config}" > "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"                            $DRY_RUN_CMD chmod 644 "$HOME/.config/plasma-org.kde.plasma.desktop-appletsrc"
-                            $DRY_RUN_CMD echo "Panel configuration copied"
-                        '';
+                    qt = {
+                        style.package = [
+                            inputs.lightly.packages.${pkgs.system}.darkly-qt5
+                            inputs.lightly.packages.${pkgs.system}.darkly-qt6
+                        ];
+                        platformTheme.name = "qtct";
+                    };
 
                     programs.git = {
                         enable = true;
