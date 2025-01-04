@@ -105,8 +105,8 @@
 
                     qt = {
                         style.package = [
-                            inputs.lightly.packages.${pkgs.system}.darkly-qt5
-                            inputs.lightly.packages.${pkgs.system}.darkly-qt6
+                            darkly.packages.${pkgs.system}.darkly-qt5
+                            darkly.packages.${pkgs.system}.darkly-qt6
                         ];
                         platformTheme.name = "qtct";
                     };
