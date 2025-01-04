@@ -34,7 +34,7 @@
 
             modules = [
                 plasma-manager.homeManagerModules.plasma-manager
-                ({config, lib, ...}:
+                ({config, lib, inputs, ...}:
                 {
                     home.packages = with pkgs; [
                         # command line tools
