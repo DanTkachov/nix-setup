@@ -56,9 +56,6 @@
                         nix-output-monitor
                         iotop
 
-                        libsForQt5.qt5ct
-                        libsForQt6.qt6ct
-
                         # networking
                         wireshark
                         nmap
@@ -108,8 +105,8 @@
 
                     qt = {
                         style.package = [
-                            darkly.packages.${pkgs.system}.darkly-qt5
-                            darkly.packages.${pkgs.system}.darkly-qt6
+                            inputs.darkly.packages.${pkgs.system}.darkly-qt5
+                            inputs.darkly.packages.${pkgs.system}.darkly-qt6
                         ];
                         platformTheme.name = "qtct";
                     };
