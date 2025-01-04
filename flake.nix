@@ -112,10 +112,6 @@
                         platformTheme.name = "qtct";
                     };
 
-                    home.sessionVariables = {
-                        QT_QPA_PLATFORMTHEME = "qtct";
-                    };
-
                     programs.git = {
                         enable = true;
                         userName = "Dan Tkachov";
@@ -138,6 +134,7 @@
                     # Enable desktop entries so that firefox/arandr/etc show up as desktop apps
                     home.sessionVariables = {
                         XDG_DATA_DIRS = "${config.home.profileDirectory}/share:$HOME/.local/share:/usr/local/share:/usr/share";
+                        QT_QPA_PLATFORMTHEME = "qtct";
                     };
 
                     home = {
