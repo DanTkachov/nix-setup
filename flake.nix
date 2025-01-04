@@ -16,10 +16,12 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
-        inputs.lightly.url = "github:Bali10050/Darkly";
+        darkly = {
+            url = "github:Bali10050/Darkly";
+        };
     };
 
-    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, ...}:
+    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, darkly, ...}:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs { 
