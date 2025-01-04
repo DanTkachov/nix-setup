@@ -55,6 +55,8 @@
                         gnupg
                         nix-output-monitor
                         iotop
+                        qt5ct
+                        qt6ct
 
                         # networking
                         wireshark
