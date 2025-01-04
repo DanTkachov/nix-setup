@@ -53,8 +53,6 @@
                         gnupg
                         nix-output-monitor
                         iotop
-                        libsForQt5.qt5ct
-                        kdePackages.qt6ct
 
                         # networking
                         wireshark
