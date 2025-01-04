@@ -16,9 +16,7 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
-        darkly = {
-            url = "github:Bali10050/Darkly";
-        };
+        darkly.url = "github:Bali10050/Darkly";
     };
 
     outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, darkly, ...}:
@@ -55,6 +53,8 @@
                         gnupg
                         nix-output-monitor
                         iotop
+                        libsForQt5.qt5ct
+                        kdePackages.qt6ct
 
                         # networking
                         wireshark
@@ -104,11 +104,16 @@
                     };
 
                     qt = {
+                        enable = true;
                         style.package = [
-                            inputs.darkly.packages.${pkgs.system}.darkly-qt5
-                            inputs.darkly.packages.${pkgs.system}.darkly-qt6
+                            darkly.packages.${system}.darkly-qt5
+                            darkly.packages.${system}.darkly-qt6
                         ];
                         platformTheme.name = "qtct";
+                    };
+
+                    home.sessionVariables = {
+                        QT_QPA_PLATFORMTHEME = "qtct";
                     };
 
                     programs.git = {
