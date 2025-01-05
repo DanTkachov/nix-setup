@@ -16,7 +16,7 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
-        inputs.lightly.url = "github:Bali10050/Darkly";
+        lightly.url = "github:Bali10050/Darkly";
     };
 
     outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, lightly, ...}:
@@ -99,24 +99,16 @@
                     ];
 
                     # Plasma Configuration here:
-                    programs.plasma = {
-                        enable = true;
-                        workspace = {
-                            theme = "breeze-dark";
-                            colorScheme = "BreezeDark";
-                            lookAndFeel = "org.kde.breezedark.desktop";
-                            iconTheme = "breeze-dark";
-                            cursor.theme = "Breeze";
-                        };
-                    };
-
-                    qt = {
-                        style.package = [
-                            inputs.lightly.packages.${pkgs.system}.darkly-qt5
-                            inputs.lightly.packages.${pkgs.system}.darkly-qt6
-                        ];
-                        platformTheme.name = "qtct";
-                    };
+                    # programs.plasma = {
+                    #     enable = true;
+                    #     workspace = {
+                    #         theme = "breeze-dark";
+                    #         colorScheme = "BreezeDark";
+                    #         lookAndFeel = "org.kde.breezedark.desktop";
+                    #         iconTheme = "breeze-dark";
+                    #         cursor.theme = "Breeze";
+                    #     };
+                    # };
 
 
                     programs.git = {
