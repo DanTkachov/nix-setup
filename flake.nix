@@ -16,7 +16,7 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
-        lightly.url = "github:Bali10050/Darkly";
+        inputs.lightly.url = "github:Bali10050/Darkly";
     };
 
     outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, lightly, ...}:
