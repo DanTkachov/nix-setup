@@ -103,11 +103,13 @@
 
                     qt = {
                         enable = true;
-                        style.package = [
-                            darkly.packages.${system}.darkly-qt5
-                            darkly.packages.${system}.darkly-qt6
-                        ];
-                        platformTheme.name = "qtct";
+                        platformTheme = {
+                            name="qtct";
+                        };
+                        style = {
+                            name = "darkly";
+                            package = darkly.packages.${system}.darkly-qt6;
+                        };
                     };
 
                     programs.git = {
