@@ -100,6 +100,20 @@
                         };
                     };
 
+                    programs.plasma.panels = [
+                        {
+                            location = "left";  # Places the panel on the left side
+                            height = 44;        # Default height, adjust as needed
+                            widgets = [
+                            # Some common widgets you might want
+                            "org.kde.plasma.kickoff"      # Application launcher
+                            "org.kde.plasma.icontasks"    # Task manager
+                            "org.kde.plasma.systemtray"   # System tray
+                            "org.kde.plasma.digitalclock" # Clock
+                            ];
+                        }
+                    ];
+
                     programs.git = {
                         enable = true;
                         userName = "Dan Tkachov";
