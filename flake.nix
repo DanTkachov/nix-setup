@@ -114,6 +114,7 @@
                         style.package = [
                             inputs.lightly.packages.${pkgs.system}.darkly-qt6
                         ];
+                        platformTheme.name = "qtct";
                     };
 
 
