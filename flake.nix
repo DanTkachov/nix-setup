@@ -16,10 +16,9 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
-        darkly.url = "github:Bali10050/Darkly";
     };
 
-    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, darkly, ...}:
+    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, ...}:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs { 
@@ -97,18 +96,7 @@
                             colorScheme = "BreezeDark";
                             lookAndFeel = "org.kde.breezedark.desktop";
                             iconTheme = "breeze-dark";
-                            cursor.theme = "Breeze_Light";
-                        };
-                    };
-
-                    qt = {
-                        enable = true;
-                        platformTheme = {
-                            name="qtct";
-                        };
-                        style = {
-                            name = "darkly";
-                            package = darkly.packages.${system}.darkly-qt6;
+                            cursor.theme = "Breeze";
                         };
                     };
 
