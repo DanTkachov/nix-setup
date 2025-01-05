@@ -1,5 +1,10 @@
 Dan's Nix setup
 
+Run the quick install:
+```bash
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/DanTkachov/nix-setup/main/quick-setup.sh)"
+```
+
 1. Install nix[^1]
 ```bash
 $ sh <(curl -L https://nixos.org/nix/install) --daemon
