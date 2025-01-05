@@ -16,9 +16,10 @@
             url="github:DanTkachov/nix-setup/main?dir=configs/kde-panels.conf";
             flake = false;
         };
+        lightly.url = "github:Bali10050/Darkly";
     };
 
-    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, ...}:
+    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, lightly, ...}:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs { 
@@ -52,6 +53,8 @@
                         gnupg
                         nix-output-monitor
                         iotop
+                        alacritty
+                        ventoy
 
                         # networking
                         wireshark
@@ -73,6 +76,11 @@
                         xz
                         unzip
                         p7zip
+                        digikam
+
+                        # creative
+                        krita
+                        audacity
                         
                         # other
                         virt-manager
@@ -86,6 +94,8 @@
                         obsidian
                         discord
                         mullvad-vpn
+                        jetbrains-toolbox
+                        anki
                     ];
 
                     # Plasma Configuration here:
@@ -100,19 +110,12 @@
                         };
                     };
 
-                    programs.plasma.panels = [
-                        {
-                            location = "left";  # Places the panel on the left side
-                            height = 44;        # Default height, adjust as needed
-                            widgets = [
-                            # Some common widgets you might want
-                            "org.kde.plasma.kickoff"      # Application launcher
-                            "org.kde.plasma.icontasks"    # Task manager
-                            "org.kde.plasma.systemtray"   # System tray
-                            "org.kde.plasma.digitalclock" # Clock
-                            ];
-                        }
-                    ];
+                    qt = {
+                        style.package = [
+                            inputs.lightly.packages.${pkgs.system}.darkly-qt6
+                        ];
+                    };
+
 
                     programs.git = {
                         enable = true;
@@ -125,16 +128,16 @@
                     xdg.configFile."VSCodium/product.json".text = ''
                         {
                             "extensionsGallery": {
-                            "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
-                            "itemUrl": "https://marketplace.visualstudio.com/items",
-                            "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
-                            "controlUrl": ""
+                                "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+                                "itemUrl": "https://marketplace.visualstudio.com/items",
+                                "cacheUrl": "https://vscode.blob.core.windows.net/gallery/index",
+                                "controlUrl": ""
                             }
                         }
                         '';
 
-                    # Enable desktop entries so that firefox/arandr/etc show up as desktop apps
                     home.sessionVariables = {
+                        # Enable desktop entries so that firefox/arandr/etc show up as desktop apps
                         XDG_DATA_DIRS = "${config.home.profileDirectory}/share:$HOME/.local/share:/usr/local/share:/usr/share";
                         # QT_QPA_PLATFORMTHEME = "qtct";
                     };
