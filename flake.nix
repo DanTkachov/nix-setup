@@ -130,6 +130,12 @@
                         }
                         '';
 
+                    programs.direnv = {
+                        enable = true;
+                        nix-direnv.enable = true; # this is optional, see https://github.com/nix-community/nix-direnv
+                        enableZshIntegration = true;
+                    };
+
                     home.sessionVariables = {
                         # Enable desktop entries so that firefox/arandr/etc show up as desktop apps
                         XDG_DATA_DIRS = "${config.home.profileDirectory}/share:$HOME/.local/share:/usr/local/share:/usr/share";
