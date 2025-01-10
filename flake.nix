@@ -130,7 +130,7 @@
                             }
                         }
                         '';
-                    programs.vscode = {
+                    programs.vscodium = {
                         enable = true;
                         extensions = with pkgs.vscode-extensions; [
                             bbenoist.nix
