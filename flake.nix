@@ -130,6 +130,13 @@
                             }
                         }
                         '';
+                    programs.vscode = {
+                        enable = true;
+                        extensions = with pkgs.vscode-extensions; [
+                            bbenoist.nix
+                            ms-python.python
+                        ];
+                    };
 
                     programs.direnv = {
                         enable = true;
