@@ -130,12 +130,13 @@
                             }
                         }
                         '';
-                    programs.vscodium = {
+                    programs.vscode = {
                         enable = true;
                         extensions = with pkgs.vscode-extensions; [
                             bbenoist.nix
                             ms-python.python
                         ];
+                        package = pkgs.vscodium;
                     };
 
                     programs.direnv = {
