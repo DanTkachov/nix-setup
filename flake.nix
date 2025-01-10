@@ -133,8 +133,24 @@
                     programs.vscode = {
                         enable = true;
                         extensions = with pkgs.vscode-extensions; [
+                            # Base Nix support
                             bbenoist.nix
+
+                            # Python
                             ms-python.python
+                            ms-python.vscode-pylance
+                            ms-python.black-formatter
+
+                            # Jupyter
+                            ms-toolsai.jupyter
+                            ms-toolsai.jupyter-keymap
+                            ms-toolsai.vscode-jupyter-slideshow
+                            ms-toolsai.vscode-jupyter-cell-tags
+                            ms-toolsai.jupyter-renderers
+
+                            # Misc
+                            mechatroner.rainbow-csv
+                            redhat.vscode-yaml
                         ];
                         package = pkgs.vscodium;
                     };
