@@ -55,7 +55,6 @@
                         iotop
                         alacritty
                         ventoy
-                        sudo
 
                         # networking
                         wireshark
