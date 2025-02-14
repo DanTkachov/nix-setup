@@ -100,7 +100,7 @@
                         anki
                     ];
 
-                    inputs.zen-browser.packages."${system}".beta
+                    inputs.zen-browser.packages."${system}".beta;
 
                     # Plasma Configuration here:
                     # programs.plasma = {
