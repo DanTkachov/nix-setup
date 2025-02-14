@@ -17,9 +17,10 @@
             flake = false;
         };
         lightly.url = "github:Bali10050/Darkly";
+        zen-browser.url = "github:0xc000022070/zen-browser-flake";
     };
 
-    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, lightly, ...}:
+    outputs = {nixpkgs, home-manager, plasma-manager, kde-panels-config, lightly, zen-browser,...}:
     let
         system = "x86_64-linux";
         pkgs = import nixpkgs { 
@@ -70,6 +71,7 @@
                         vscodium
                         vlc
                         floorp
+                        
 
                         # archives
                         zip
@@ -97,6 +99,8 @@
                         jetbrains-toolbox
                         anki
                     ];
+
+                    inputs.zen-browser.packages."${system}".beta
 
                     # Plasma Configuration here:
                     # programs.plasma = {
