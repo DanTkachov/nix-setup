@@ -118,7 +118,10 @@
                         enable = true;
                         userName = "Dan Tkachov";
                         userEmail = "danieltkachov67@gmail.com";
-                        signing.signByDefault = false;
+                        signing = {
+                            signByDefault = false;
+                            format = "gpg";  
+                        }
                     };
 
 
