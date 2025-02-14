@@ -121,7 +121,7 @@
                         signing = {
                             signByDefault = false;
                             format = "gpg";  
-                        }
+                        };
                     };
 
 
