@@ -71,6 +71,7 @@
                         vscodium
                         vlc
                         floorp
+                        inputs.zen-browser.packages."${system}".beta
                         
 
                         # archives
@@ -99,8 +100,6 @@
                         jetbrains-toolbox
                         anki
                     ];
-
-                    inputs.zen-browser.packages."${system}".beta;
 
                     # Plasma Configuration here:
                     # programs.plasma = {
