@@ -71,7 +71,7 @@
                         vscodium
                         vlc
                         floorp
-                        inputs.zen-browser.packages."${system}".beta
+                        zen-browser.packages."${system}".beta
                         
 
                         # archives
