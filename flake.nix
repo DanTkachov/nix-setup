@@ -56,6 +56,7 @@
                         iotop
                         alacritty
                         ventoy
+                        neofetch
 
                         # networking
                         wireshark
