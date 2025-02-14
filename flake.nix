@@ -120,7 +120,7 @@
                         userEmail = "danieltkachov67@gmail.com";
                         signing = {
                             signByDefault = false;
-                            format = "opengpg";  
+                            format = "ssh";  
                         };
                     };
 
