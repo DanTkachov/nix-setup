@@ -73,7 +73,7 @@
                         vlc
                         floorp
                         zen-browser.packages."${system}".beta
-                        
+                        foliate
 
                         # archives
                         zip
