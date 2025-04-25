@@ -57,6 +57,8 @@
                         alacritty
                         ventoy
                         neofetch
+                        htop
+                        nvtop
 
                         # networking
                         wireshark
@@ -71,7 +73,6 @@
                         gparted
                         vscodium
                         vlc
-                        floorp
                         zen-browser.packages."${system}".beta
                         foliate
 
@@ -101,18 +102,6 @@
                         jetbrains-toolbox
                         anki
                     ];
-
-                    # Plasma Configuration here:
-                    # programs.plasma = {
-                    #     enable = true;
-                    #     workspace = {
-                    #         theme = "breeze-dark";
-                    #         colorScheme = "BreezeDark";
-                    #         lookAndFeel = "org.kde.breezedark.desktop";
-                    #         iconTheme = "breeze-dark";
-                    #         cursor.theme = "Breeze";
-                    #     };
-                    # };
 
                     programs.alacritty = {
                         enable = true;
