@@ -58,7 +58,7 @@
                         ventoy
                         neofetch
                         htop
-                        nvtop
+                        nvtopPackages.nvidia
 
                         # networking
                         wireshark
