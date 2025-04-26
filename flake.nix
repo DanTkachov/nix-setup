@@ -160,6 +160,11 @@
                         enableZshIntegration = true;
                     };
 
+                    programs.zen-browser = {
+                        enable = true;
+                        nativeMessagingHosts = [pkgs.firefoxpwa];
+                    };
+
                     home.sessionVariables = {
                         # Enable desktop entries so that firefox/arandr/etc show up as desktop apps
                         XDG_DATA_DIRS = "${config.home.profileDirectory}/share:$HOME/.local/share:/usr/local/share:/usr/share";
